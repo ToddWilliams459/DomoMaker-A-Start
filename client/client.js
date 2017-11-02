@@ -24,6 +24,7 @@ const sendAjax = (action, data) => {
 }
 
 $(document).ready(() => {
+  //Signup form
   $("#signupForm").on("submit", (e) => {
     e.preventDefault();
 
@@ -44,6 +45,7 @@ $(document).ready(() => {
     return false;
   });
 
+  //Login Form
   $("#loginForm").on("submit", (e) => {
     e.preventDefault();
 
