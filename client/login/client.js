@@ -44,27 +44,25 @@ const setup = (csrf) => {
 
 	signupButton.addEventListener("click", (e) => {
 		e.preventDefault();
-		cretesSignupWindiw(csrf);
+		createSignupWindow(csrf);
 		return false;
 	});
 
 	loginButton.addEventListener("click", (e) => {
 		e.preventDefault();
-		createsLoginWindow(csrf);
+		createLoginWindow(csrf);
 		return false;
 	});
 
 
+	createLoginWindow(csrf); //default view
+};
 
 const getToken = () => {
 	sendAjax('GET', '/getToken', null, (result) => {
 		setup(result.csrfToken);
 	});
 };
-
-	createsLoginWindow(csrf); //default view
-};
-
 
 
 const SignupWindow = (props) => {
@@ -100,8 +98,6 @@ const LoginWindow = (props) => {
 		<input id="user" type="text" name="username" placeholder="username"/>
 		<label htmlFor="pass">Password: </label>
 		<input id="pass" type="password" name="pass" placeholder="password"/>
-		<label htmlFor="pass2">Password: </label>
-		<input id="pass2" type="password" name="pass2" placeholder="retype password"/>
 		<input type="hidden" name="_csrf" value={props.csrf} />
 		<input className="formSubmit" type="submit" value="Sign in" />
 	</form>
@@ -121,6 +117,7 @@ const createLoginWindow = (csrf) => {
 		document.querySelector("#content")
 		);
 };
+
 
 $(document).ready(function() {
 	getToken();
