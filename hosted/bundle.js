@@ -1,6 +1,7 @@
 "use strict";
 
 var handleDomo = function handleDomo(e) {
+	console.log(e);
 	e.preventDefault();
 
 	$("#domoMessage").animate({ width: 'hide' }, 350);
@@ -38,8 +39,15 @@ var DomoForm = function DomoForm(props) {
 			" Age: "
 		),
 		React.createElement("input", { id: "domoAge", type: "text", name: "age", placeholder: "Domo Age" }),
+		React.createElement(
+			"label",
+			{ htmlFor: "level" },
+			"Level: "
+		),
+		React.createElement("input", { id: "domoLevel", type: "text", name: "level", placeholder: "Domo Level" }),
 		React.createElement("input", { type: "hidden", name: "_csrf", value: props.csrf }),
-		React.createElement("input", { className: "makeDomoSubmit", type: "submit", value: "Make Domo" })
+		React.createElement("input", { className: "makeDomoSubmit", type: "submit", value: "Make Domo" }),
+		React.createElement("input", { className: "removeDomo", type: "button", value: "Delete Domo" })
 	);
 };
 
@@ -73,6 +81,13 @@ var DomoList = function DomoList(props) {
 				{ className: "domoAge" },
 				"Age: ",
 				domo.age,
+				" "
+			),
+			React.createElement(
+				"h3",
+				{ className: "domoLevel" },
+				"Level: ",
+				domo.level,
 				" "
 			)
 		);
