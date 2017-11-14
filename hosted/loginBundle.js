@@ -141,6 +141,7 @@ var handleError = function handleError(message) {
 
 var redirect = function redirect(response) {
 	$("#domoMessage").animate({ width: 'hide' }, 350);
+	window.location = response.redirect;
 };
 
 var sendAjax = function sendAjax(type, action, data, success) {
