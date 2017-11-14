@@ -1,5 +1,4 @@
 const handleDomo = (e) => {
-	console.log(e);
 	e.preventDefault();
 
 	$("#domoMessage").animate({width:'hide'},350);
